@@ -52,7 +52,7 @@ $(document).ready(function() {
       $(this).addClass('btn-secondary');
       return false;
     });
-    // End roduct detail
+    // End product detail
 // Pagination for product cards (dynamic)
 const productsPerPage = 6;
 const products = $(".product-wap").parent(); // .col-md-4 wrappers
@@ -93,4 +93,20 @@ $(document).on("click", ".pagination .page-link", function(e) {
 // Show first page on load
 showPage(1);
 
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('inputMobileSearch');
+    const searchTrigger = document.getElementById('searchTrigger');
+
+    if (searchTrigger && searchInput) {
+        searchTrigger.addEventListener('click', function (e) {
+            e.preventDefault(); // prevent default anchor behavior
+            const keyword = searchInput.value.trim();
+            if (keyword) {
+                // Redirect to shop.html with search query
+                window.location.href = `shop.html?search=${encodeURIComponent(keyword)}`;
+            }
+        });
+    }
 });
